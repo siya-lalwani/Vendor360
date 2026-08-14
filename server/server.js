@@ -4,6 +4,7 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const app = express();
 const authRoutes = require("./routes/authRoutes");
+const comapanyRoutes = require("./routes/companyRoutes");
 
 // Connect Database
 connectDB();
@@ -12,6 +13,7 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth",authRoutes);
+app.use("/api/companies",comapanyRoutes);
 
 // Test Route
 app.get("/",(req,res)=>{
