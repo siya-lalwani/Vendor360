@@ -35,7 +35,7 @@ const registerUser = async (req, res) => {
             message: "User registered successfully",
             user: {
                 id: user._id,
-                name: user, name,
+                name: user.name,
                 email: user.email,
                 role: user.role,
                 organizationType: user.organizationType

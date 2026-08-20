@@ -1,8 +1,8 @@
 const Company = require("../models/Company");
+const User = require("../models/User");
 const createCompany = async (req, res) => {
     try {
         const {
-            companyId,
             companyName,
             email,
             phone,
@@ -16,8 +16,8 @@ const createCompany = async (req, res) => {
             logo
         } = req.body;
 
-        // check required fields
-        if (!companyId ||
+        // Check required fields
+        if (
             !companyName ||
             !email ||
             !phone ||
@@ -25,17 +25,10 @@ const createCompany = async (req, res) => {
             !address ||
             !city ||
             !state ||
-            !country) {
+            !country
+        ) {
             return res.status(400).json({
                 message: "Please provide all required company details"
-            });
-        }
-
-        // Check whether company ID already exists
-        const existingCompany = await Company.findOne({ companyId });
-        if (existingCompany) {
-            return res.status(400).json({
-                message: "Company ID already exists"
             });
         }
 
@@ -47,6 +40,10 @@ const createCompany = async (req, res) => {
                 message: "Company email already exists"
             });
         }
+
+        // Generate Company ID
+        const companyCount = await Company.countDocuments();
+        const companyId = `COMP-${String(companyCount + 1).padStart(6, "0")}`;
 
         // Create company
         const company = await Company.create({
@@ -64,10 +61,12 @@ const createCompany = async (req, res) => {
             logo,
             createdBy: req.user.userId
         });
+
         res.status(201).json({
             message: "Company profile created successfully",
             company
         });
+
     } catch (error) {
         console.error("Create Company Error:", error.message);
 
@@ -76,4 +75,7 @@ const createCompany = async (req, res) => {
         });
     }
 };
-module.exports = { createCompany };
+
+module.exports = {
+    createCompany
+};
