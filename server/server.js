@@ -6,6 +6,7 @@ const app = express();
 const authRoutes = require("./routes/authRoutes");
 const companyRoutes = require("./routes/companyRoutes");
 const vendorRoutes = require("./routes/vendorRoutes");
+const partnershipRoutes = require("./routes/partnershipRoutes");
 
 // Connect Database
 connectDB();
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use("/api/auth",authRoutes);
 app.use("/api/companies", companyRoutes);
 app.use("/api/vendors", vendorRoutes);
+app.use("/api/partnerships", partnershipRoutes);
 
 // Test Route
 app.get("/",(req,res)=>{
