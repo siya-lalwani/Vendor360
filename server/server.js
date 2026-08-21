@@ -8,6 +8,8 @@ const companyRoutes = require("./routes/companyRoutes");
 const vendorRoutes = require("./routes/vendorRoutes");
 const partnershipRoutes = require("./routes/partnershipRoutes");
 const contractRoutes = require("./routes/contractRoutes");
+const documentRoutes = require("./routes/documentRoutes");
+const notificationRoutes = require("./routes/notificationRoutes");
 
 // Connect Database
 connectDB();
@@ -20,6 +22,8 @@ app.use("/api/companies", companyRoutes);
 app.use("/api/vendors", vendorRoutes);
 app.use("/api/partnerships", partnershipRoutes);
 app.use("/api/contracts",contractRoutes);
+app.use("/api/documents", documentRoutes);
+app.use("/api/notifications", notificationRoutes);
 
 // Test Route
 app.get("/",(req,res)=>{
