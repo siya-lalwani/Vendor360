@@ -1,0 +1,914 @@
+{
+  "info": {
+    "_postman_id": "dfd6129a-86d5-4082-8d49-8e8fda0f3838",
+    "name": "Vendor360",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49796038",
+    "_collection_link": "https://go.postman.co/collection/49796038-dfd6129a-86d5-4082-8d49-8e8fda0f3838?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Company Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"{{companyEmail}}\",\r\n    \"password\": \"{{companyPassword}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Company API",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"companyId\": \"COMP-0001\",\r\n    \"companyName\": \"Vendor360 Test Company\",\r\n    \"email\": \"company@vendor360.com\",\r\n    \"phone\": \"9876543210\",\r\n    \"website\": \"https://example.com\",\r\n    \"industry\": \"Technology\",\r\n    \"address\": \"123 Test Street\",\r\n    \"city\": \"Ahmedabad\",\r\n    \"state\": \"Gujarat\",\r\n    \"country\": \"India\",\r\n    \"description\": \"Test company for Vendor360\",\r\n    \"logo\": null\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/companies",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "companies"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Vendor User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Test Vendor User\",\r\n    \"email\": \"vendor@vendor360.com\",\r\n    \"password\": \"password123\",\r\n    \"role\": \"VENDOR_EMPLOYEE\",\r\n    \"organizationType\": \"VENDOR\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Vendor Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"{{vendorEmail}}\",\r\n    \"password\": \"{{vendorPassword}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Vendor API",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{vendorToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"vendorName\": \"ABC Suppliers\",\r\n    \"email\": \"vendorcompany@vendor360.com\",\r\n    \"phone\": \"9876543210\",\r\n    \"website\": \"https://example.com\",\r\n    \"industry\": \"Manufacturing\",\r\n    \"address\": \"456 Vendor Street\",\r\n    \"city\": \"Ahmedabad\",\r\n    \"state\": \"Gujarat\",\r\n    \"country\": \"India\",\r\n    \"description\": \"Test vendor for Vendor360\",\r\n    \"logo\": null\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/vendors",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "vendors"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Vendor by ID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/vendors/search?query=VEN-000001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "vendors",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "VEN-000001"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Vendor by Name",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/vendors/search?query=ABC",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "vendors",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "ABC"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Send Partnership Request",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"vendorId\": \"VEN-000001\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/partnerships",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "partnerships"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Accept Partnership",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{vendorToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/partnerships/PART-000001/accept",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "partnerships",
+            "PART-000001",
+            "accept"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Contract Creation",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"partnershipId\": \"PART-000001\",\r\n    \"title\": \"ABC Suppliers Annual Contract\",\r\n    \"amount\": 500000,\r\n    \"currency\": \"INR\",\r\n    \"employeeCount\": 25,\r\n    \"productCount\": 10,\r\n    \"startDate\": \"2026-09-01\",\r\n    \"endDate\": \"2027-08-31\",\r\n    \"contractFile\": null\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/contracts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "contracts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Activate Contract",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/contracts/CONT-000001/activate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "contracts",
+            "CONT-000001",
+            "activate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search all contracts of a company",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/contracts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "contracts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Document Requests",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"partnershipId\": \"PART-000001\",\r\n    \"requestedTo\": \"6a87229fbb5d9b19771c3850\",\r\n    \"title\": \"GST Certificate\",\r\n    \"description\": \"Please provide the latest GST registration certificate.\",\r\n    \"priority\": \"HIGH\",\r\n    \"dueDate\": \"2026-09-01\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/documents/requests",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "documents",
+            "requests"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Send Documents",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{vendorToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"documentRequestId\": \"6a87e5c92d9ad58dedecea6e\",\r\n    \"originalFileName\": \"GST_Certificate_2026.pdf\",\r\n    \"storedFileName\": \"gst_certificate_2026.pdf\",\r\n    \"mimeType\": \"application/pdf\",\r\n    \"fileSize\": 245760,\r\n    \"fileUrl\": \"https://example.com/documents/gst_certificate_2026.pdf\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/documents",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "documents"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Approve Documents",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/documents/6a87e6cdec63a120365f5a20/approve",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "documents",
+            "6a87e6cdec63a120365f5a20",
+            "approve"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Contract by Number",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/contracts/CONT-000001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "contracts",
+            "CONT-000001"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "All Document Requests",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/documents/requests",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "documents",
+            "requests"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "All Documents",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/documents",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "documents"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Notification",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userId\": \"6a87229fbb5d9b19771c3850\",\r\n    \"title\": \"Document Approved\",\r\n    \"message\": \"Your GST Certificate has been approved.\",\r\n    \"type\": \"DOCUMENT_APPROVED\",\r\n    \"link\": \"/documents/6a87e6cdec63a120365f5a20\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/notifications",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "notifications"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "My Notifications",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{vendorToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/notifications",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "notifications"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Mark Notification Read",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{vendorToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/notifications/6a87ec6efce9f2c69518d5c7/read",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "notifications",
+            "6a87ec6efce9f2c69518d5c7",
+            "read"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Activity Log",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"partnershipId\": \"6a873fe648d5d698dcdc76b3\",\r\n    \"action\": \"CONTRACT_ACTIVATED\",\r\n    \"description\": \"Contract CONT-000001 was activated successfully.\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/activity-logs",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "activity-logs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Partnership Activity Logs",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/activity-logs/6a873fe648d5d698dcdc76b3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "activity-logs",
+            "6a873fe648d5d698dcdc76b3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Submit Feedback",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"partnershipId\": \"PART-000001\",\r\n    \"rating\": 5,\r\n    \"communication\": 5,\r\n    \"quality\": 4,\r\n    \"professionalism\": 5,\r\n    \"comments\": \"Excellent vendor communication and service.\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/feedback",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "feedback"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Partnership Feedback",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{companyToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/feedback/PART-000001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "feedback",
+            "PART-000001"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{companyToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "companyToken",
+      "value": ""
+    },
+    {
+      "key": "vendorToken",
+      "value": ""
+    }
+  ]
+}
