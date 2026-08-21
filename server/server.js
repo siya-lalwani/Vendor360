@@ -10,6 +10,8 @@ const partnershipRoutes = require("./routes/partnershipRoutes");
 const contractRoutes = require("./routes/contractRoutes");
 const documentRoutes = require("./routes/documentRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
+const activityLogRoutes = require("./routes/activityLogRoutes");
+const feedbackRoutes = require("./routes/feedbackRoutes");
 
 // Connect Database
 connectDB();
@@ -24,6 +26,8 @@ app.use("/api/partnerships", partnershipRoutes);
 app.use("/api/contracts",contractRoutes);
 app.use("/api/documents", documentRoutes);
 app.use("/api/notifications", notificationRoutes);
+app.use("/api/activity-logs", activityLogRoutes);
+app.use("/api/feedback", feedbackRoutes);
 
 // Test Route
 app.get("/",(req,res)=>{
